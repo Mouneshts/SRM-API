@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SRM_MVC.Models.Semester>
+
+@{
+    ViewData["Title"] = "Semester List";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>Semester List</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.SemesterId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.SemesterId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new {  id=item.SemesterId }) |
+                @*@Html.ActionLink("Details", "Get", new { id = item.SemesterId }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.SemesterId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

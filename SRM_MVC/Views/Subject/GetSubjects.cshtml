@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SRM_MVC.Models.Subjects>
+
+@{
+    ViewData["Title"] = "Subject List";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+
+}
+
+<h1>GetSubjects</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.SubjectId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bId)
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.SubjectId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bId)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id=item.SubjectId }) |
+                @*@Html.ActionLink("Details", "Get", new { id = item.SubjectId }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.SubjectId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

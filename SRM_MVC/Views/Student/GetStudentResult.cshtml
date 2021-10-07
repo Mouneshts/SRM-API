@@ -1,0 +1,110 @@
+﻿@model StudentResultView
+@{ ViewData["Title"] = "Result"; }
+<html>
+<head>
+    <style>
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+
+
+        /* Control the left side */
+        .left {
+            left: 0;
+        }
+
+
+
+        /* Control the right side */
+        .right {
+            right: 0;
+        }
+
+
+
+        /* If you want the content centered horizontally and vertically */
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+
+
+            /* Style the image inside the centered container, if needed */
+            .centered img {
+                width: 150px;
+                border-radius: 50%;
+            }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <tr class="align-center">
+                <th>Result Sheet</th>
+            </tr>
+            <tr>
+                <td>Student ID</td>
+                <td>@Model.Student.StudentId</td>
+                <td>Student Name</td>
+                <td><label>@Model.Student.FirstName  @Model.Student.LastName</label></td>
+            </tr>
+        </table>
+
+
+        <div class="split left">
+            <div class="centered">
+                <table border="0">
+                    <tr>
+                        <td><label>Subject</label></td>
+                    </tr>
+
+
+
+                    @foreach (var item in Model.subjects)
+                    {
+        <tr><th>@item.SubjectName</th></tr>
+}
+                </table>
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="split right">
+            <div class="centered">
+                <table border="0">
+                    <tr><td><label>Marks</label></td></tr>
+
+
+
+                    @foreach (var item in Model.Result)
+                    {
+
+
+
+
+        <tr><th>@item.ResultScore</th></tr>}
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

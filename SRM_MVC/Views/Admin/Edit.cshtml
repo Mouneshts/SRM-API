@@ -1,0 +1,75 @@
+﻿@model SRM_MVC.Models.Admin
+
+@{
+    ViewData["Title"] = "Update Admin";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1> Update Admin </h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="AdminId" class="control-label"></label>
+                <input asp-for="AdminId" class="form-control" />
+                <span asp-validation-for="AdminId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminFirstName" class="control-label">First Name</label>
+                <input asp-for="AdminFirstName" class="form-control" />
+                <span asp-validation-for="AdminFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminLastName" class="control-label">Last Name</label>
+                <input asp-for="AdminLastName" class="form-control" />
+                <span asp-validation-for="AdminLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminEmail" class="control-label">Email</label>
+                <input asp-for="AdminEmail" class="form-control" />
+                <span asp-validation-for="AdminEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminGender" class="control-label">Gender</label>
+                <input asp-for="AdminGender" class="form-control" />
+                <span asp-validation-for="AdminGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminCity" class="control-label">City</label>
+                <input asp-for="AdminCity" class="form-control" />
+                <span asp-validation-for="AdminCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminPassword" class="control-label">Password</label>
+                <input asp-for="AdminPassword" class="form-control" />
+                <span asp-validation-for="AdminPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

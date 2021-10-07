@@ -1,0 +1,23 @@
+﻿@model SRM_MVC.Models.Result
+@{
+    ViewData["Title"] = "GetStudentResult";
+    //Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+
+}
+       <h1>Student Result</h1>
+        <form asp-controller="Student" asp-action="GetStudentResult">
+            <label>Student ID</label>
+            <input name="id" />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SemesterId, "Enter Semester", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(x => Model.SemesterId, new SelectList(ViewBag.semLiIst, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.SemesterId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <button value="Submit" type="submit" class="btn btn-primary">Result</button>
+        </form>
+    
+  
+

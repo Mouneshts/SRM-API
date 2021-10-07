@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SRM_MVC.Models.Branch>
+
+@{
+    ViewData["Title"] = "Branch List";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>Branch List</h1>
+
+@*<p>
+    <a asp-action="AddBranch" asp-controller="Branch" method="get">Create New Branch</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.BId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.BId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseId)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new {  id=item.BId }) |
+                @*@Html.ActionLink("Details", "Get", new {  id=item.BId  }) |*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.BId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

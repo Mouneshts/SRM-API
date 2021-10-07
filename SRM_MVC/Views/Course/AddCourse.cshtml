@@ -1,0 +1,149 @@
+﻿@*@model SRM_MVC.Models.Courses
+
+    @{
+        ViewData["Title"] = "AddCourse";
+    }
+
+    <h1>AddCourse</h1>
+
+    <h4>Courses</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddCourse">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CourseName" class="control-label"></label>
+                    <input asp-for="CourseName" class="form-control" />
+                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+
+
+
+@model SRM_MVC.Models.Courses
+
+@{
+    ViewData["Title"] = "Add Course";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+
+<h1>Add Course</h1>
+
+@*<h4>Courses</h4>*@
+<hr />
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <!-- font awesome 5 -->
+    <link rel="stylesheet" href="~/frontend/default/css/fontawesome-all.min.css">
+    @*<link rel="stylesheet" href="~/frontend/default/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/frontend/default/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="~/frontend/default/css/main.css" />
+
+
+
+    <link rel="stylesheet" href="assets/frontend/default/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/global/toastr/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <script src="assets/backend/js/jquery-3.3.1.min.js"></script>
+    <style>
+        .tab-content > .tab-pane {
+            display: block !important;
+        }
+
+        .tab-content > .active {
+            display: block !important;
+        }
+
+        .col-xl-8 {
+            font-family: nunito !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddCourse">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </form>
+        </div>
+    </div>
+    <form class="my-form" asp-action="AddCourse" method="post" enctype="multipart/form-data">
+        <div id="basicwizard">
+            <div class="tab-content b-0 mb-0">
+                <div class="tab-pane" id="2">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8" style="padding-top:80px!important">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+
+
+                            @*CourseId*@
+                            <div class="form-group row mb-3" hidden>
+                                <label class="col-md-2 col-form-label" asp-for="CourseId" hidden>CourseId<span class="required">*</span> </label>
+                                <div class="col-md-10" >
+                                    <input class="form-control" asp-for="CourseId" placeholder="Enter CourseId" hidden/>
+                                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            @*CourseName*@
+                            <div class="form-group row mb-3">
+                                <label class="col-md-2 col-form-label" asp-for="CourseName">Course Name <span class="required">*</span> </label>
+                                <div class="col-md-10">
+                                    <input class="form-control" asp-for="CourseName" placeholder="Enter Course Name" />
+                                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="tab-pane" id="finish">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <div class="mb-3 mt-3">
+                                                <input type="submit" class="btn btn-primary " value="Create">
+                                            </div>
+                                        </div>
+                                    </div> <!-- end col -->
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+
+    @*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+</body>
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

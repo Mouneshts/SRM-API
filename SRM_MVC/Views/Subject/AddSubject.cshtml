@@ -1,0 +1,50 @@
+﻿@model SRM_MVC.Models.Subjects
+
+@{
+    ViewData["Title"] = "AddSubject";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>Add Subject</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddSubject">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="SubjectName" class="control-label"></label>
+                <input asp-for="SubjectName" class="form-control" />
+                <span asp-validation-for="SubjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CourseId, "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.CourseId, new SelectList(ViewBag.courseslist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.CourseId, "Select Course", new { @class = "text-danger" })
+                </div>
+            </div> <div class="form-group">
+                @Html.LabelFor(model => model.Semid, "Semester", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.Semid, new SelectList(ViewBag.semlist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.Semid, "Select Semester", new { @class = "text-danger" })
+                </div>
+            </div> <div class="form-group">
+                @Html.LabelFor(model => model.bId, "Branch", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.bId, new SelectList(ViewBag.brlist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.bId, "Select Branch ", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @*<a asp-action="Index">Back to List</a>*@
+</div>
+

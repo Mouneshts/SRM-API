@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SRM_MVC.Models.Result>
+
+@{
+    ViewData["Title"] = "Result List";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+
+}
+
+<h1>Result List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ResultId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SemesterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultStatus)
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ResultId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.ResultId }) |
+                @*@Html.ActionLink("Details", "Get", new {  id=item.AdminId  }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.ResultId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

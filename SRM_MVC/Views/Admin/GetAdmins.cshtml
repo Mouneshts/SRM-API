@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SRM_MVC.Models.Admin>
+
+@{
+    ViewData["Title"] = "Admin List";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>Admins List</h1>
+
+@*<p>
+    <a asp-action="AddAdimn" asp-controller="Admin" method="get">Create New Admin</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.AdminId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.AdminFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminCity)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.AdminPassword)*@
+            </th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.AdminId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminCity)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.AdminPassword)*@
+            </td>
+            <td>
+                
+                @Html.ActionLink("Update", "Edit", new { id=item.AdminId  }) |
+                @*@Html.ActionLink("Details", "Get", new {  id=item.AdminId  }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id=item.AdminId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,99 @@
+﻿@model SRM_MVC.Models.Admin
+
+@{
+    ViewData["Title"] = "AddAdmin";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>Register Admin</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAdmin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @ViewBag.Error
+            <div class="form-group" hidden>
+                <label asp-for="AdminId" class="control-label"></label>
+                <input asp-for="AdminId" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminFirstName" class="control-label">First Name</label>
+                <input asp-for="AdminFirstName" class="form-control" />
+
+                @Html.ValidationMessageFor(Model => Model.AdminFirstName, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminLastName" class="control-label">Last Name</label>
+                <input asp-for="AdminLastName" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.AdminLastName, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminEmail" class="control-label">Email</label>
+                <input asp-for="AdminEmail" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.AdminEmail, "", new { @class = "text-danger" })
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminGender" class="control-label">Gender</label>
+                <input asp-for="AdminGender" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.AdminGender, "", new { @class = "text-danger" })
+
+            </div>
+        @*<div class="form-group">
+            <label asp-for="AdminGender" class="control-label">Gender</label>
+            <input type="radio" name="Gender" value="Male" class="form-control" />Male
+            <input type="radio" name="Gender" value="Female" class="form-control" />Female
+            <input type="radio" name="Gender" value="other" class="form-control" />Other
+            @Html.ValidationMessageFor(Model => Model.AdminGender, "", new { @class = "text-danger" })
+
+        </div>*@
+
+            <div class="form-group">
+                <label asp-for="AdminCity" class="control-label">City</label>
+                <input asp-for="AdminCity" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.AdminCity, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminPassword" class="control-label">Password</label>
+                <input asp-for="AdminPassword" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.AdminPassword, "", new { @class = "text-danger" })
+
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="reset" class="btn btn-primary" />
+                        </td><td></td>
+                        <td>
+                            <input type="submit" value="Add" class="btn btn-primary" />
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

@@ -1,0 +1,46 @@
+body{
+  background-color: #c5cae9;
+  padding: 25px;
+}
+p.thick {
+	font-weight: 900;
+}
+
+.{
+  width: 720px;
+  height: 440px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 40px;
+  border-radius: 12px;
+  background-color: #90a4ae;
+  font-family: Brown;
+}
+
+.container h2{
+  text-align: center;
+}
+
+table{
+  margin: 0 auto;
+border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  padding: 16px;
+  border: 2px dotted;
+}
+h1 {
+  font-size: 50px;
+}
+h2Strong {
+  font-size: 30px;
+}
+#h3Strong {
+  font-size: 20px;
+}
+h4 {
+  font-size: 45px;
+}
